@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es" data-variant="pastoral">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bienaventurados · Basílica de las Bienaventuranzas</title>
+<meta name="description" content="Sube al monte junto al lago de Galilea y entra en la basílica de Barluzzi: un recorrido continuo por sus ocho vidrieras, una por cada Bienaventuranza.">
+<meta property="og:title" content="Bienaventurados · Basílica de las Bienaventuranzas">
+<meta property="og:description" content="Ocho lados, ocho palabras. Un recorrido por la basílica del Monte de las Bienaventuranzas.">
+<meta property="og:image" content="keys/00_lago.jpg">
+<meta name="theme-color" content="#0B0A08">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpolygon points='11,2 21,2 30,11 30,21 21,30 11,30 2,21 2,11' fill='%230B0A08' stroke='%23C9A35B' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="preload" as="image" href="frames/lo/0000.webp">
+<script src="frames/manifest.js"></script>
+<style>
+:root{
+ --font-display:"Cormorant Garamond","EB Garamond",Georgia,serif;
+ --font-body:"Source Serif 4","Literata",Georgia,serif;
+ --step-hero:clamp(3.4rem,10vw,10rem);--step-h2:clamp(2rem,5vw,4.2rem);--step-h3:clamp(1.5rem,2.6vw,2.2rem);
+ --step-body:clamp(1rem,1.1vw,1.18rem);--step-small:.82rem;
+ --bg:#0B0A08;--fg:#F2EBDD;--muted:#B3AA96;--accent:#C9A35B;--accent-2:#7A1F1F;
+ --line:color-mix(in srgb,var(--fg) 14%,transparent);
+ --space-1:.5rem;--space-2:1rem;--space-3:1.5rem;--space-4:2.5rem;--space-5:4rem;--space-6:6.5rem;--space-7:10.5rem;
+ --section-y:clamp(6rem,15vh,12rem);--gutter:clamp(1.1rem,4vw,4rem);--maxw:1440px;
+ --ease-out:cubic-bezier(.22,1,.36,1);--dur-micro:180ms;--dur-ui:380ms;--dur-reveal:1100ms;
+ --scrim:linear-gradient(90deg,rgba(11,10,8,.86) 0%,rgba(11,10,8,.62) 40%,rgba(11,10,8,0) 72%);
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg);color:var(--fg)}
+body{font:400 var(--step-body)/1.55 var(--font-body);background:var(--bg);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:.2em}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:fixed;left:var(--gutter);top:-4rem;z-index:50;background:var(--accent);color:var(--bg);padding:.7rem 1rem;font-weight:600;text-decoration:none}
+.skip:focus{top:1rem}
+
+/* barra superior */
+.top{position:fixed;inset:0 0 auto;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:1rem var(--gutter);pointer-events:none}
+.top>*{pointer-events:auto}
+.mark{font:600 1.05rem/1 var(--font-display);letter-spacing:.14em;text-transform:uppercase;color:var(--fg);text-decoration:none}
+.mark b{color:var(--accent);font-weight:600}
+.menu-btn{font:600 .82rem/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;background:none;border:1px solid var(--line);color:var(--fg);min-height:44px;padding:0 1.1rem;cursor:pointer;transition:border-color var(--dur-micro)}
+.top{transition:background var(--dur-ui)}.top.solid{background:rgba(11,10,8,.88);border-bottom:1px solid var(--line)}
+.menu-btn:hover{border-color:var(--accent)}
+
+/* película */
+.film{position:relative;height:calc(var(--units,40) * 100svh)}
+.stage{position:sticky;top:0;height:100svh;overflow:hidden;background:#15130f}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.scrim{position:absolute;inset:0;background:var(--scrim);pointer-events:none}
+.vig{position:absolute;inset:0;background:linear-gradient(rgba(11,10,8,.6),rgba(11,10,8,0) 7.5rem),radial-gradient(120% 90% at 60% 45%,transparent 55%,rgba(11,10,8,.55));pointer-events:none}
+.grain{position:absolute;inset:-50%;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(4) infinite}
+@keyframes grain{25%{transform:translate(-3%,2%)}50%{transform:translate(2%,-4%)}75%{transform:translate(-4%,-1%)}}
+
+.cap{position:absolute;left:var(--gutter);bottom:clamp(5.5rem,14vh,9rem);width:min(36rem,calc(100% - 2*var(--gutter)));pointer-events:none}
+.cap .k{font:600 var(--step-small)/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--accent);display:flex;gap:.8rem;align-items:center}
+.cap .k::after{content:"";height:1px;width:3rem;background:var(--accent);opacity:.6}
+.cap h2{font:500 var(--step-h2)/.95 var(--font-display);letter-spacing:-.015em;margin:.6rem 0 0;text-wrap:balance}
+.cap .la{font:italic 500 var(--step-h3)/1.1 var(--font-display);color:var(--accent);margin-top:.5rem}
+.cap .v{margin-top:1rem;max-width:34rem;text-wrap:pretty}
+.cap .ref{font-variant:small-caps;letter-spacing:.06em;color:var(--muted)}
+.cap .q{margin-top:.9rem;color:var(--muted);font-style:italic;max-width:32rem}
+.cap .line{display:block;overflow:hidden}
+.cap .line>span{display:block;transform:translateY(105%);opacity:0;transition:transform var(--dur-reveal) var(--ease-out),opacity var(--dur-reveal) var(--ease-out)}
+.cap.on .line>span{transform:none;opacity:1}
+.cap.on .line:nth-child(2)>span{transition-delay:90ms}.cap.on .line:nth-child(3)>span{transition-delay:180ms}
+.cap.on .line:nth-child(4)>span{transition-delay:270ms}.cap.on .line:nth-child(5)>span{transition-delay:360ms}
+
+/* portada sobre el primer fotograma */
+.hero{position:absolute;inset:0;display:grid;align-content:end;padding:0 var(--gutter) clamp(3rem,10vh,7rem);pointer-events:none;transition:opacity 600ms var(--ease-out)}
+.hero h1{font:500 var(--step-hero)/.88 var(--font-display);letter-spacing:-.02em}
+.hero h1 em{color:var(--accent);font-style:italic}
+.hero p{max-width:34rem;margin-top:1.4rem;color:var(--fg)}
+.hero .cue{margin-top:2rem;font:600 var(--step-small)/1 var(--font-body);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:.8rem}
+.hero .cue i{width:1px;height:2.6rem;background:linear-gradient(var(--accent),transparent);animation:drip 2.4s var(--ease-out) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.hero.off{opacity:0}
+
+/* octógono de progreso: momento firma */
+.oct{position:absolute;right:var(--gutter);bottom:clamp(1.5rem,5vh,3rem);width:clamp(9rem,14vw,12rem);aspect-ratio:1}
+.oct::before{content:"";position:absolute;inset:-22%;border-radius:50%;background:radial-gradient(closest-side,rgba(11,10,8,.72),rgba(11,10,8,.45) 70%,transparent);pointer-events:none}
+.oct{transition:opacity var(--dur-ui) var(--ease-out)}.oct.off{opacity:0;pointer-events:none}
+.oct svg{position:relative;width:100%;height:100%;overflow:visible}
+.oct .side{stroke:var(--line);stroke-width:2.2;fill:none;transition:stroke var(--dur-ui) var(--ease-out),stroke-width var(--dur-ui)}
+.oct .side.lit{stroke:color-mix(in srgb,var(--accent) 55%,transparent)}
+.oct .side.now{stroke:var(--accent);stroke-width:4}
+.oct button{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border:0;background:none;cursor:pointer;border-radius:50%;color:var(--fg);font:500 .95rem/1 var(--font-display)}
+.oct button span{opacity:.55;transition:opacity var(--dur-micro)}
+.oct button:hover span,.oct button[aria-current=step] span{opacity:1;color:var(--accent)}
+.oct .ctr{z-index:1;position:absolute;inset:30%;display:grid;place-items:center;text-align:center;font:500 .72rem/1.2 var(--font-body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.bar{position:absolute;left:0;bottom:0;height:2px;width:100%;transform-origin:left;transform:scaleX(0);background:var(--accent);opacity:.7}
+.badge{position:absolute;top:4.6rem;right:var(--gutter);font:600 .7rem/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:.45rem .6rem;background:rgba(11,10,8,.4)}
+.loader{position:absolute;left:var(--gutter);top:4.6rem;font:600 .7rem/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transition:opacity .6s}
+.loader.done{opacity:0}
+
+/* índice */
+dialog.idx{margin:0 0 0 auto;height:100dvh;max-height:none;width:min(30rem,100%);background:var(--bg);color:var(--fg);border:0;border-left:1px solid var(--line);padding:var(--space-5) var(--gutter)}
+dialog.idx::backdrop{background:rgba(11,10,8,.6)}
+dialog.idx h2{font:500 var(--step-h3)/1 var(--font-display);margin-bottom:var(--space-3)}
+dialog.idx ol{list-style:none;padding:0;display:grid;gap:.15rem}
+dialog.idx button.go{all:unset;box-sizing:border-box;display:grid;grid-template-columns:2.6rem 1fr;align-items:baseline;width:100%;min-height:44px;padding:.55rem 0;border-bottom:1px solid var(--line);cursor:pointer}
+dialog.idx button.go:hover,dialog.idx button.go:focus-visible{color:var(--accent)}
+dialog.idx .n{font:500 1.1rem/1 var(--font-display);color:var(--accent)}
+dialog.idx .close{position:absolute;top:1rem;right:var(--gutter)}
+
+/* después de la película */
+.after{padding:var(--section-y) var(--gutter);max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-4) var(--space-3)}
+.after .lead{grid-column:1/span 7}
+.after h2{font:500 var(--step-h2)/.95 var(--font-display);letter-spacing:-.015em}
+.after h2 em{color:var(--accent)}
+.after .lead p{margin-top:1.4rem;max-width:38rem;color:var(--muted)}
+.facts{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:var(--space-4) var(--space-5);margin-top:var(--space-4)}
+.facts h3{font:600 1.35rem/1.1 var(--font-display);color:var(--accent);margin-bottom:.4rem}
+.facts p{max-width:62ch}
+.more{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:1rem;margin-top:var(--space-4)}
+.btn{display:inline-flex;align-items:center;gap:.7rem;min-height:48px;padding:0 1.4rem;border:1px solid var(--accent);color:var(--fg);text-decoration:none;font:600 .82rem/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;transition:background var(--dur-micro),color var(--dur-micro)}
+.btn:hover{background:var(--accent);color:var(--bg)}
+.note{grid-column:1/span 8;color:var(--muted);font-size:.92rem;border-top:1px solid var(--line);padding-top:var(--space-3);margin-top:var(--space-4)}
+.src{grid-column:1/-1;font-size:.88rem;color:var(--muted);padding-left:1.1rem}
+footer{border-top:1px solid var(--line);padding:var(--space-4) var(--gutter);display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;color:var(--muted);font-size:.88rem}
+footer .mark{font-size:.9rem}
+
+/* sin movimiento: capítulos estáticos */
+.static{display:none}
+@media (prefers-reduced-motion:reduce){
+ .film{display:none}.static{display:block}.grain,.hero .cue i{animation:none}
+ .cap .line>span{transition:opacity 150ms;transform:none}
+}
+.static figure{position:relative;margin:0}
+.static img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+.static .cap{position:relative;left:auto;bottom:auto;width:auto;padding:var(--space-4) var(--gutter) var(--space-5);max-width:44rem}
+.static .cap .line>span{transform:none;opacity:1}
+.static h1{font:500 var(--step-hero)/.88 var(--font-display);padding:var(--space-6) var(--gutter) var(--space-3)}
+
+@media (max-width:760px){
+ :root{--scrim:linear-gradient(0deg,rgba(11,10,8,.92) 0%,rgba(11,10,8,.7) 40%,rgba(11,10,8,0) 72%)}
+ .cap{bottom:2.2rem}
+ .cap .q{display:none}
+ .oct{width:5.6rem;top:5rem;bottom:auto;right:1.6rem}
+ .oct button{width:36px;height:36px;margin:-18px 0 0 -18px;font-size:.78rem}
+ .oct .ctr{font-size:.56rem;letter-spacing:.08em}
+ .after .lead,.note{grid-column:1/-1}
+ .badge{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#despues">Saltar el recorrido</a>
+
+<header class="top">
+ <a class="mark" href="#inicio" aria-label="Bienaventurados, volver al inicio">Beati <b>·</b> VIII</a>
+ <button class="menu-btn" id="openIdx" aria-haspopup="dialog">Índice</button>
+</header>
+
+<main id="inicio">
+<section class="film" id="film" aria-label="Recorrido por la basílica">
+ <div class="stage" id="stage">
+  <canvas id="cv" aria-hidden="true"></canvas>
+  <div class="vig"></div><div class="scrim"></div><div class="grain"></div>
+  <div class="hero" id="hero">
+   <h1>Bienaven&shy;turados<br><em>ocho palabras</em></h1>
+   <p>Sube al monte junto al lago de Galilea y entra en la basílica que Antonio Barluzzi levantó sobre ocho lados, uno por cada Bienaventuranza.</p>
+   <div class="cue"><i></i>Baja para subir al monte</div>
+  </div>
+  <article class="cap" id="cap" aria-live="polite"></article>
+  <nav class="oct" id="oct" aria-label="Las ocho Bienaventuranzas"></nav>
+  <div class="loader" id="loader">Preparando el recorrido…</div>
+  <div class="badge" id="badge" hidden>Vista provisional de la maqueta</div>
+  <div class="bar" id="bar"></div>
+ </div>
+</section>
+
+<section class="static" id="static" aria-label="Recorrido en imágenes"></section>
+
+<section class="after" id="despues">
+ <div class="lead">
+  <h2>Una iglesia construida sobre <em>ocho palabras</em></h2>
+  <p>Antonio Barluzzi la proyectó en 1937-38 en lo alto de la colina que mira al lago, entre Tabgha y Cafarnaúm. Todo en ella nace del número ocho: la planta, los arcos interiores y las vidrieras del tambor.</p>
+ </div>
+ <div class="facts">
+  <div><h3>Planta y pórtico</h3><p>Planta octogonal sobre un gran podio, rodeada por un pórtico que suaviza la luz y el calor: nueve arcos por lado, salvo al norte, donde se alza el edificio de entrada.</p></div>
+  <div><h3>Materiales</h3><p>Basalto negro local labrado a bujarda, piedra blanca de Nazaret en arcos y cornisas, columnas de travertino romano y una cúpula forrada de cobre con pátina verdosa.</p></div>
+  <div><h3>Tambor y vidrieras</h3><p>Ocho vidrieras en la base de la cúpula, cada una con una Bienaventuranza completa en latín. Por dentro, la cúpula se reviste de mosaico dorado.</p></div>
+  <div><h3>Altar y pavimento</h3><p>Altar de alabastro y ónice bajo un arco esbelto; sagrario de Aurelio Mistruzzi. En el suelo, el mosaico de Pietro D'Achiardi hace nacer del altar un río de gracia que riega las siete virtudes.</p></div>
+ </div>
+ <div class="more">
+  <a class="btn" href="basilica-bienaventuranzas.html">Explorar la maqueta 3D →</a>
+  <a class="btn" href="#inicio">Volver a subir</a>
+ </div>
+ <p class="note" id="vnote">Las imágenes del recorrido salen de una maqueta reconstruida a partir de la descripción documentada: las medidas y algunos detalles son estimaciones.</p>
+ <ul class="src">
+  <li><a href="https://sbf.custodia.org/sites/default/files/2024-11/Luca%20-%20Tabgha%20Beatitudini%202024.pdf">M. Luca, «Il monte delle Beatitudini», SBF Jerusalem (2024)</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Church_of_the_Beatitudes">Church of the Beatitudes</a></li>
+  <li><a href="https://www.kairos2.com/church_of_the_beatitudes.htm">Kairos: vidrieras de la base de la cúpula</a></li>
+ </ul>
+</section>
+</main>
+
+<footer>
+ <span class="mark">Beati <b>·</b> VIII</span>
+ <span>Parroquia de Santa Casilda · Madrid</span>
+ <span>Textos bíblicos: Mt 5,1-12</span>
+</footer>
+
+<dialog class="idx" id="idx" aria-label="Índice del recorrido">
+ <button class="menu-btn close" id="closeIdx">Cerrar</button>
+ <h2>El recorrido</h2>
+ <ol id="idxList"></ol>
+</dialog>
+
+<script>
+(() => {
+const F = window.FRAMES || {count:281,pad:4,ext:'webp',keys:[0,20,40,60,80,100,120,140,160,180,200,220,240,260,280],version:'maqueta'};
+const ROM = ['I','II','III','IV','V','VI','VII','VIII'];
+
+/* 15 paradas: una por fotograma clave */
+const CH = [
+ {k:'El lago', h:'Un monte junto al lago', v:'La colina se asoma al mar de Galilea, entre Tabgha y Cafarnaúm. Aquí la tradición sitúa el Sermón de la Montaña.'},
+ {k:'La subida', h:'Videns autem turbas', la:'Al ver a la gente, subió al monte', v:'«Se sentó, y se acercaron sus discípulos; y, abriendo su boca, les enseñaba».', ref:'cf. Mt 5,1-2'},
+ {k:'El pórtico', h:'Basalto, piedra y sombra', v:'Un pórtico de arcos rodea la iglesia y suaviza la luz y el calor. Basalto negro del lugar, piedra blanca de Nazaret y una cúpula de cobre.'},
+ {k:'La puerta', h:'Acercarse y escuchar', v:'Se entra por el norte. Barluzzi pensó esta iglesia para que el peregrino haga lo mismo que los discípulos: acercarse, sentarse y escuchar.'},
+ {k:'Dentro', h:'Ocho lados, ocho palabras', v:'Levanta la vista hacia el tambor: allí arriba están las ocho vidrieras. El edificio entero se apoya en ocho palabras de Jesús.'},
+ ...[
+  ['Beati pauperes spiritu','Bienaventurados los pobres en el espíritu, porque de ellos es el Reino de los cielos.','Mt 5,3','¿De qué seguridades necesito soltarme para dejar sitio a Dios?'],
+  ['Beati qui lugent','Bienaventurados los que lloran, porque ellos serán consolados.','Mt 5,4','¿Qué lágrimas, mías o ajenas, pongo hoy en sus manos?'],
+  ['Beati mites','Bienaventurados los mansos, porque ellos heredarán la tierra.','Mt 5,5','¿Dónde respondo con dureza cuando podría responder con calma?'],
+  ['Beati qui esuriunt et sitiunt iustitiam','Bienaventurados los que tienen hambre y sed de justicia, porque ellos quedarán saciados.','Mt 5,6','¿Qué injusticia cercana me pide hoy algo más que una queja?'],
+  ['Beati misericordes','Bienaventurados los misericordiosos, porque ellos alcanzarán misericordia.','Mt 5,7','¿A quién me cuesta mirar con ojos de misericordia?'],
+  ['Beati mundo corde','Bienaventurados los limpios de corazón, porque ellos verán a Dios.','Mt 5,8','¿Qué me impide ver a Dios en lo que tengo delante?'],
+  ['Beati pacifici','Bienaventurados los que trabajan por la paz, porque ellos serán llamados hijos de Dios.','Mt 5,9','¿Con quién puedo dar hoy el primer paso?'],
+  ['Beati qui persecutionem patiuntur propter iustitiam','Bienaventurados los perseguidos por causa de la justicia, porque de ellos es el Reino de los cielos.','Mt 5,10','¿Me avergüenzo alguna vez de mi fe por miedo al qué dirán?']
+ ].map((b,i)=>({beat:i,k:'Bienaventuranza '+ROM[i],h:b[1].split(',')[0],la:b[0],v:b[1].slice(b[1].indexOf(',')+2).replace(/^./,c=>c.toUpperCase()),ref:b[2],q:b[3]})),
+ {k:'El altar', h:'Un río de gracia', la:'Fides · Spes · Caritas', v:'Del altar nace un río de mosaico que, en siete brazos, riega las siete virtudes. Las Bienaventuranzas no se viven a fuerza de voluntad, sino desde la gracia.', q:'¿Qué virtud necesitas pedir hoy?'},
+ {k:'La cúpula', h:'Gaudete et exsultate', la:'Alegraos y regocijaos', v:'«Porque vuestra recompensa será grande en los cielos». Arriba brilla el oro de la cúpula, imagen del cielo prometido.', ref:'Mt 5,12', q:'¿Cuál de las ocho te ha hablado hoy? Llévatela al salir.'}
+];
+const N = CH.length, KEYS = F.keys.slice(0,N);
+const esc = s => String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function capHTML(c){
+ const L = t => `<span class="line"><span>${t}</span></span>`;
+ return L(`<span class="k">${esc(c.k)}</span>`) + L(`<h2>${esc(c.h)}</h2>`) +
+  (c.la?L(`<p class="la" lang="la">${esc(c.la)}</p>`):'') +
+  L(`<p class="v">${esc(c.v)}${c.ref?` <span class="ref">${esc(c.ref)}</span>`:''}</p>`) +
+  (c.q?L(`<p class="q">${esc(c.q)}</p>`):'');
+}
+const pad = i => String(i).padStart(F.pad,'0');
+const src = (q,i) => `frames/${q}/${pad(i)}.${F.ext}`;
+
+/* índice */
+const idx = document.getElementById('idx'), idxList = document.getElementById('idxList');
+idxList.innerHTML = CH.map((c,i)=>`<li><button class="go" data-go="${i}"><span class="n">${c.beat!=null?ROM[c.beat]:'·'}</span><span>${esc(c.beat!=null?c.la:c.h)}</span></button></li>`).join('');
+document.getElementById('openIdx').onclick = () => idx.showModal();
+document.getElementById('closeIdx').onclick = () => idx.close();
+idx.addEventListener('click', e => { if (e.target === idx) idx.close(); });
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (F.version !== 'realista') document.getElementById('badge').hidden = false;
+else document.getElementById('vnote').textContent = 'Las imágenes del recorrido se han generado con inteligencia artificial a partir de una maqueta reconstruida y de fotografías de referencia; algunos detalles pueden no ser exactos.';
+
+/* ---------- versión sin movimiento ---------- */
+if (reduce) {
+ const st = document.getElementById('static');
+ document.querySelector('.top').classList.add('solid');
+ st.innerHTML = '<h1>Bienaventurados</h1>' + CH.map((c,i)=>`<figure><img src="${src('hi',KEYS[i])}" alt="${esc(c.k)}: ${esc(c.h)}" loading="lazy" width="960" height="540"><figcaption class="cap on">${capHTML(c)}</figcaption></figure>`).join('');
+ idxList.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if(!b) return; idx.close(); st.querySelectorAll('figure')[+b.dataset.go].scrollIntoView(); });
+ return;
+}
+
+/* ---------- línea de tiempo: avanzar + detenerse en cada parada ---------- */
+const MOVE = 1, HOLD = .9, INTRO = .6;
+const SEG = []; let total = INTRO;
+for (let i=0;i<N;i++){
+ SEG.push({type:'hold', i, a:total, b:total+HOLD}); total += HOLD;
+ if (i<N-1){ SEG.push({type:'move', i, a:total, b:total+MOVE}); total += MOVE; }
+}
+const film = document.getElementById('film');
+film.style.setProperty('--units', (total + 1).toFixed(2));
+function frameAt(u){ // u en unidades de la línea de tiempo
+ if (u <= INTRO) return {f:0, ch:-1};
+ for (const s of SEG){ if (u <= s.b){
+  if (s.type==='hold') return {f:KEYS[s.i], ch:s.i};
+  const t = (u - s.a)/(s.b - s.a);
+  return {f:KEYS[s.i] + (KEYS[s.i+1]-KEYS[s.i])*t, ch: t<.5 ? -1 : -1};
+ }}
+ return {f:KEYS[N-1], ch:N-1};
+}
+function unitsOf(ch){ const s = SEG.find(s=>s.type==='hold'&&s.i===ch); return (s.a + s.b)/2; }
+
+/* ---------- carga de fotogramas: primero claves, luego el resto ---------- */
+const small = innerWidth < 760 || (navigator.connection && navigator.connection.saveData);
+const Q = small ? ['lo'] : ['lo','hi'];
+const imgs = {lo:new Array(F.count), hi:new Array(F.count)};
+const ready = {lo:new Uint8Array(F.count), hi:new Uint8Array(F.count)};
+let loaded = 0; const loader = document.getElementById('loader');
+function order(){
+ const o = [...KEYS], seen = new Set(o);
+ for (let step=8; step>=1; step=step>>1) for (let i=0;i<F.count;i+=step) if(!seen.has(i)){seen.add(i);o.push(i)}
+ return o;
+}
+const ORDER = order();
+function load(q, list, par=6){
+ let p = 0;
+ return new Promise(res => {
+  let active = 0;
+  const next = () => {
+   if (p >= list.length && active === 0) return res();
+   while (active < par && p < list.length){
+    const i = list[p++], im = new Image(); active++;
+    im.decoding = 'async'; im.src = src(q,i);
+    im.onload = () => { imgs[q][i] = im; ready[q][i] = 1; if(q==='lo'){loaded++; if(loaded%10===0||loaded===F.count) loader.textContent = loaded===F.count ? '' : `Preparando el recorrido… ${Math.round(loaded/F.count*100)} %`; if(loaded===F.count) loader.classList.add('done');} active--; dirty = true; next(); };
+    im.onerror = () => { active--; next(); };
+   }
+  };
+  next();
+ });
+}
+load('lo', ORDER).then(() => { if (Q.includes('hi')) load('hi', ORDER, 4); });
+
+/* ---------- dibujo ---------- */
+const cv = document.getElementById('cv'), g = cv.getContext('2d', {alpha:false});
+let W=0, H=0, dirty = true;
+function size(){ const d = Math.min(devicePixelRatio||1, 2); W = cv.width = Math.round(cv.clientWidth*d); H = cv.height = Math.round(cv.clientHeight*d); dirty = true; }
+addEventListener('resize', size); size();
+function nearest(i){
+ for (let r=0; r<F.count; r++){
+  for (const j of [i-r, i+r]) if (j>=0 && j<F.count){
+   if (ready.hi[j] && r===0) return imgs.hi[j];
+   if (ready.lo[j]) return (ready.hi[j] ? imgs.hi[j] : imgs.lo[j]);
+  }
+ }
+ return null;
+}
+function cover(im){ const s = Math.max(W/im.naturalWidth, H/im.naturalHeight), w = im.naturalWidth*s, h = im.naturalHeight*s; g.drawImage(im, (W-w)/2, (H-h)/2, w, h); }
+function draw(f){
+ const A = nearest(Math.round(f)); if(!A) return;
+ g.globalAlpha = 1; cover(A);
+}
+
+/* ---------- interfaz: octógono ---------- */
+const oct = document.getElementById('oct');
+{ const pts = [...Array(8)].map((_,i)=>{ const a = -Math.PI/2 - Math.PI/8 + i*Math.PI/4; return [50+46*Math.cos(a), 50+46*Math.sin(a)]; });
+  let svg = '<svg viewBox="0 0 100 100" aria-hidden="true">';
+  for (let i=0;i<8;i++){ const [x1,y1]=pts[i],[x2,y2]=pts[(i+1)%8]; svg += `<line class="side" data-s="${i}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`; }
+  svg += '</svg><div class="ctr" id="octc">Beati</div>';
+  for (let i=0;i<8;i++){ const [x1,y1]=pts[i],[x2,y2]=pts[(i+1)%8], mx=(x1+x2)/2, my=(y1+y2)/2, ox=50+(mx-50)*1.32, oy=50+(my-50)*1.32;
+   svg += `<button style="left:${ox}%;top:${oy}%" data-go="${i+5}" aria-label="Bienaventuranza ${i+1}: ${esc(CH[i+5].la)}"><span>${ROM[i]}</span></button>`; }
+  oct.innerHTML = svg; }
+const sides = [...oct.querySelectorAll('.side')], obtn = [...oct.querySelectorAll('button')], octc = document.getElementById('octc');
+
+/* ---------- scroll ---------- */
+const top = document.querySelector('.top'), cap = document.getElementById('cap'), hero = document.getElementById('hero'), bar = document.getElementById('bar');
+let target = 0, shown = 0, curCh = -2;
+function readScroll(){
+ const r = film.getBoundingClientRect(), span = film.offsetHeight - innerHeight;
+ const p = Math.min(1, Math.max(0, -r.top / span));
+ target = p * total; bar.style.transform = `scaleX(${p})`;
+}
+addEventListener('scroll', readScroll, {passive:true}); readScroll(); shown = target;
+function setChapter(ch){
+ if (ch === curCh) return; curCh = ch;
+ cap.classList.remove('on');
+ if (ch >= 0){ cap.innerHTML = capHTML(CH[ch]); requestAnimationFrame(()=>requestAnimationFrame(()=>cap.classList.add('on'))); }
+ const beat = ch>=0 && CH[ch].beat!=null ? CH[ch].beat : -1;
+ sides.forEach((s,i)=>{ s.classList.toggle('now', i===beat); s.classList.toggle('lit', beat>=0 ? i<beat : ch>12); });
+ obtn.forEach((b,i)=> i===beat ? b.setAttribute('aria-current','step') : b.removeAttribute('aria-current'));
+ octc.textContent = beat>=0 ? ROM[beat]+' de VIII' : (ch>12 ? 'Gaudete' : 'Beati');
+}
+let lastF = -1;
+function tick(){
+ shown += (target - shown) * .12;
+ if (Math.abs(target-shown) < .0005) shown = target;
+ const {f, ch} = frameAt(shown);
+ hero.classList.toggle('off', shown > INTRO*.6); oct.classList.toggle('off', shown <= INTRO*.6);
+ top.classList.toggle('solid', film.getBoundingClientRect().bottom < 60);
+ const {ch:tch} = frameAt(target);
+ setChapter(Math.abs(target-shown) < .35 ? tch : (ch>=0?ch:-1));
+ if (dirty || Math.abs(f-lastF) > .001){ draw(f); lastF = f; dirty = false; }
+ requestAnimationFrame(tick);
+}
+requestAnimationFrame(tick);
+
+/* saltos desde el índice y el octógono */
+function goTo(ch){ const u = unitsOf(ch), span = film.offsetHeight - innerHeight; scrollTo({top: film.offsetTop + u/total*span, behavior:'smooth'}); }
+document.addEventListener('click', e => { const b = e.target.closest('[data-go]'); if(!b) return; if (idx.open) idx.close(); goTo(+b.dataset.go); });
+addEventListener('keydown', e => {
+ if (idx.open || /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+ const r = film.getBoundingClientRect(); if (r.bottom < innerHeight*.5 || r.top > 0) return;
+ if (e.key === 'n' || e.key === 'N'){ goTo(Math.min(N-1, Math.max(0,curCh)+1)); }
+ if (e.key === 'p' || e.key === 'P'){ goTo(Math.max(0, curCh-1)); }
+});
+})();
+</script>
+</body>
+</html>
